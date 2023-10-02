@@ -35,6 +35,8 @@ INTERNAL_IPS = [
 # you add all your applications within the project inside this list
 
 INSTALLED_APPS = [
+    # register the voting app to the Django project we previously created which is myshop
+    'votingapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,8 +48,6 @@ INSTALLED_APPS = [
     # register our app to have admin access
     # register the polls app to the Django project we previously created which is myshop
     'polls',
-    # register the voting app to the Django project we previously created which is myshop
-    'votingapp'
 ]
 
 MIDDLEWARE = [
