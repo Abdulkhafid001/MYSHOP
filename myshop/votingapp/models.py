@@ -5,7 +5,7 @@ from django.db import models
 # the Choice has two fields: the text of the choice and a vote tally. Each Choice is associated with a Question.
 class Question(models.Model):
     # created a char column
-    question_text = models.CharField(max_length=200)
+    question_text = models.CharField(max_length=100)
     # created a datetimefield
     pub_date = models.DateTimeField("date published")
 
