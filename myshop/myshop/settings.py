@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     # register our app to have admin access
     # register the polls app to the Django project we previously created which is myshop
     'polls',
+    # register the voting app to the Django project we previously created which is myshop
+    'votingapp'
 ]
 
 MIDDLEWARE = [
