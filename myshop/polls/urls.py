@@ -1,6 +1,6 @@
 # the objective is to map our view to a http request
 from django.urls import path
-
+#import the view module inorder to call the functions
 from polls import views
 
 urlpatterns = [

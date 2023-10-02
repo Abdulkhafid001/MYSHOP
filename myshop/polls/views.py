@@ -8,7 +8,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("<h1>project root path</h1>")
+    return HttpResponse("<h1>app root path</h1>")
 
 # create another view and map it to the url
 

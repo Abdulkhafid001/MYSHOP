@@ -21,9 +21,9 @@ admin.autodiscover()
 urlpatterns = [
     # here we import the votingapp as a high-level app in our parent mysite project
     # add the URLConf of my voting app to the main project
-    path("", include('votingapp.urls')), # Define a pattern for the root path
+    path('', include('votingapp.urls')), # Define a pattern for the root path
     # here we import the polls app as a high-level app in our parent mysite project
-    path('', include('polls.urls')),  # Define a pattern for the root path
+    # path('', include('polls.urls')),  # Define a pattern for the root path
     path('admin/',admin.site.urls),
     # add django-debug-toolbar URL to your project URLConf
     path("__debug__/", include("debug_toolbar.urls")),
