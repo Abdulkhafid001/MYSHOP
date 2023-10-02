@@ -1,0 +1,1 @@
+# MYSHOP learning django journey
