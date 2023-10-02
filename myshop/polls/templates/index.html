@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vote for your candidate</title>
+    <!-- link to bootstrap4 css file -->
+    <link rel="stylesheet" href="C:\\Users\\Lenovo yoga\\Desktop\\MYSHOP\\myshop\\polls\\templates\\bootstrap4.css">
+    <style>
+    </style>
+</head>
+ 
+<body>
+{% block content %}
+    <table>
+        <thead>
+            <th>candidate</th>
+            <th>state</th>
+            <th>votes</th>
+            <th>no of votes</th>
+        </thead>
+        {%for detail in votes%}
+        <tr>
+            <td>{{detail.candidate_name}}</td>
+            <td>{{detail.candidate_state}}</td>
+            <td>{{detail.vote}}</td>
+            <td>{{detail.number_of_vote}}</td>
+        </tr>
+        {%endfor%}
+        </table>
+{% endblock %}
+</body>
+</html>
