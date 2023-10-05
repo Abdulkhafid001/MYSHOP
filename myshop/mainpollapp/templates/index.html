@@ -9,7 +9,7 @@
     <h1>Welcome to naija vote platform</h1>
     <h3>Vote Your Candidate!</h3>
     <h5>free and square</h5>
-    {% block content%}
+    {% block content %}
 
     <table>
         <thead>candidate name</thead>
@@ -20,11 +20,11 @@
             <td><img src="" alt="peter obi picture" srcset=""></td>
             <td><img src="" alt="bola tinubu picture" srcset=""></td>
         </tr>
-        <tr>
-            {% for candidate in table_content%}
-            <td>candidate.candidate_name</td>
-            <td>candidate.candidate_state</td>
-            <td>candidate.desired_post</td>
+         <tr>
+            {% for person in candidate %}
+            <td>{{ person.candidate_name }}</td>
+            <td>{{ person.candidate_state }}</td>
+            <td>{{ person.desired_post }}</td>
             {% endfor %}
         </tr>
         <tr>
@@ -33,7 +33,7 @@
             <td><button>vote</button></td>
         </tr>
     </table>
-    {% endblock%}
+    {% endblock %}
 
     <!-- the purpose of this script is to update the votes of a candidate once it is been clicked by the user  -->
     <script>
