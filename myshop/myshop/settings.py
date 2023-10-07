@@ -35,7 +35,9 @@ INTERNAL_IPS = [
 # you add all your applications within the project inside this list
 
 INSTALLED_APPS = [
-     # register the mainpollingapp
+    # register the aptech team app
+    'aptechteam',
+    # register the mainpollingapp
     'mainpollapp',
     # register the voting app to the Django project we previously created which is myshop
     'votingapp',

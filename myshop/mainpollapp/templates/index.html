@@ -1,3 +1,4 @@
+ {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
     <h3>Vote Your Candidate!</h3>
     <h5>free and square</h5>
     {% block content %}
-    {% load static %}
+   
     <table>
         <thead>candidate name</thead>
         <thead>candidate state</thead>
@@ -18,7 +19,7 @@
         <!-- the files served here are static, the django publishers specify that is not advisable, they provide
          an alternative option to serve static files during production -->
         <tr>
-            <td><img src="{% static 'myshop\static\atiku-abubakar portrait.jpg' %}" alt="My image"></td>
+            <td><img src="{% static '\static\atiku-abubakar portrait.jpg' %}" alt="My image"></td>
             <td><img src="" alt="peter obi picture" srcset=""></td>
             <td><img src="" alt="bola tinubu picture" srcset=""></td>
         </tr>

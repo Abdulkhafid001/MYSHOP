@@ -7,5 +7,6 @@ from .models import CandidateInfo, ElectionResult
 
 def indexView(request):
     # from my index view i would get candidate info using a dictionary as a context
-    table_content = CandidateInfo.objects.all()
+    # get all the values from the table
+    table_content = CandidateInfo.objects.all().values()
     return render(request, "index.html", {"candidate": table_content})
