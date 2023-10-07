@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aptech School Ieam</title>
+    <title>Aptech School Team</title>
     <style>
         * {
             text-transform: capitalize;
@@ -78,6 +78,11 @@
             <td>{{ x.position }}</td>
             <td>{{ x.phone }}</td>
             <td>{{ x.joined_date }}</td>
+            <!-- create a button so that additonal info can be viewed on a player 
+            the logic here is to usef the href attribute of the anchor tag to create a url with
+            an id value that will be passed to a view which will send it to the model(databse table)
+            and select any player with that id -->
+            <td><a href="plyer"></a></td>
         </tr>
         {% endfor %}
 
