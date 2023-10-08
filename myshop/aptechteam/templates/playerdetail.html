@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block content%}
-    <title>{% %}</title>
+    <title>Name: {{ current_player_data.firstname }} id: {{ current_player_data.id }}</title>
 </head>
 
 <body>
-    <h1>{{ mymember.firstname }} {{ mymember.lastname }}</h1>
+    <h1>{{ current_player_data.firstname }} {{ current_player_data.lastname }}</h1>
 
-    <p>Phone: {{ mymember.phone }}</p>
-    <p>Member since: {{ mymember.joined_date }}</p>
+    <p>Phone: {{ current_player_data.phone }}</p>
+    <p>Member since: {{ current_player_data.joined_date }}</p>
 
     <p>Back to <a href="/ ">Members</a></p>
     {% endblock %}

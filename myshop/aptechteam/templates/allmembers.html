@@ -41,6 +41,36 @@
         table tr {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
+
+        /*code to turn the anchor tag into a button*/
+        /* CSS */
+        a.button {
+            display: inline-block;
+            padding: 10px;
+            background-color: #007bff;
+            /* Button background color */
+            color: #fff;
+            /* Button text color */
+            text-decoration: none;
+            border-radius: 5px;
+            /* Rounded corners */
+            border: 1px solid #007bff;
+            /* Button border */
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            /* Smooth hover effect */
+        }
+
+        a.button:hover {
+            background-color: #0056b3;
+            /* Change background color on hover */
+        }
+
+        /* If you want to remove the underline from the anchor tag */
+        a.button {
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -70,6 +100,7 @@
             <td>player number</td>
             <td>phone number</td>
             <td>date-joined</td>
+            <td>Info</td>
         </thead>
         {% for x in team %}
         <tr>
@@ -82,7 +113,7 @@
             the logic here is to usef the href attribute of the anchor tag to create a url with
             an id value that will be passed to a view which will send it to the model(databse table)
             and select any player with that id -->
-            <td><a href="plyer"></a></td>
+            <td><a href="playerdetail/{{x.id}}" class="button">View more about player</a></td>
         </tr>
         {% endfor %}
 
