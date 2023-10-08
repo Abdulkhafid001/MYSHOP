@@ -35,6 +35,8 @@ INTERNAL_IPS = [
 # you add all your applications within the project inside this list
 
 INSTALLED_APPS = [
+    # register the todo list app
+    'todolist',
     # register the aptech team app
     'aptechteam',
     # register the mainpollingapp

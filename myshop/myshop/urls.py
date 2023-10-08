@@ -19,8 +19,10 @@ from django.urls import include, path
 admin.autodiscover()
 
 urlpatterns = [
+    # register the todolist app URLConf which serves as a link to the app
+    path('', include('todolist.urls')),
     # register the aptech team URLConf
-    path('', include('aptechteam.urls')),
+    path('aptechteam/', include('aptechteam.urls')),
     # this file serves as the parent URLConf of the project therefore all apps URLConf must be registered here
     path('mainpollapp/', include('mainpollapp.urls')),
     # here we import the votingapp as a high-level app in our parent mysite project
