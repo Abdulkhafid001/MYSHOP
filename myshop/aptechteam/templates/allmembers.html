@@ -46,7 +46,7 @@
         /* CSS */
         a.button {
             display: inline-block;
-            padding: 10px;
+            padding: 2px;
             background-color: #007bff;
             /* Button background color */
             color: #fff;
@@ -114,10 +114,13 @@
             an id value that will be passed to a view which will send it to the model(databse table)
             and select any player with that id -->
             <td><a href="playerdetail/{{x.id}}" class="button">View more about player</a></td>
+            <td><a href="http://127.0.0.1:8000/admin/aptechteam/members/{{x.id}}/change/" class="button">update</a></td>
+            <td><a href="http://127.0.0.1:8000/admin/aptechteam/members/{{x.id}}/delete/" class="button" style="background-color: red;">delete</a></td>
         </tr>
         {% endfor %}
 
     </table>
+    <a href="http://127.0.0.1:8000/admin/aptechteam/members/add/">create new player</a>
     {% endblock %}
 </body>
 
