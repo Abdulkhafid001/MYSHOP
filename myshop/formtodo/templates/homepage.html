@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <!-- add link to bootstrap -->
     <link rel="stylesheet" href="{% static 'bootstrap3.css' %}">
-    <style>
+    <!-- link to javascript file -->
+    <script src="{% static 'script.js' %}"></script>
 
-    </style>
 </head>
 
 <body>
@@ -19,10 +19,31 @@
     <div id="myDIV" class="header">
         <h1 class="text-center">TODO-APP</h1>
         <h5 class="text-center">manage-your-task!</h5>
-        <input type="text" id="myInput" placeholder="Title...">
-        <span onclick="newElement()" class="addBtn">Add</span>
+        <form action="" method="post">
+            <input type="text" id="myInput" placeholder="Title...">
+        </form>
+        <button type="submit" onclick="newElement()" class="addBtn">Add</button>
     </div>
-    add tabs for all, completed, and pending
+    <!-- add tabs for all, completed, and pending -->
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks" onclick="showCurrentTab(event, 'all')">All</button>
+        <button class="tablinks" onclick="showCurrentTab(event, 'completed')">Completed</button>
+        <button class="tablinks" onclick="showCurrentTab(event, 'pending')">ending</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="all" class="tabcontent">
+        <h2>all tasks regardless of stage appear here</h2>
+    </div>
+
+    <div id="completed" class="tabcontent">
+        <h2>All completed task appear here</h2>
+    </div>
+
+    <div id="pending" class="tabcontent">
+        <h2>all pending tasks appear here</h2>
+    </div>
     {% else %}
 
     <!-- just like in jsp and servlet we use the action attribute to specify the 
