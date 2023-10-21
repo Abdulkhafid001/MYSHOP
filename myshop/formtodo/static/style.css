@@ -35,9 +35,9 @@
 
 /* Style the header */
 .header {
-    background-color: #f44336;
+    background-color: #032133;
     padding: 10px 20px;
-    color: white;
+    /* color: white; */
     text-align: center;
 }
 
@@ -64,7 +64,7 @@ input {
     padding: 10px;
     width: 25%;
     background: #d9d9d9;
-    color: #555;
+    color: #010101;
     float: left;
     text-align: center;
     font-size: 16px;

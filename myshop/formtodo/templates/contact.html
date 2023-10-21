@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        form {
+            width: 80%;
+            margin: auto;
+        }
+
+        form input {
+            width: 50%;
+            display: block;
+            margin: 0.7em 0;
+            padding: 0.4em;
+        }
+
+        .text-center {
+            text-align: center;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="text-center">These forms are rendered with django.</h2>
+    <form action="{% url 'viewforcontactform' %}" method="post">
+        {% csrf_token %}
+        <!-- this variable renders the django built-in form context from the view -->
+        {{ contactForm }}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

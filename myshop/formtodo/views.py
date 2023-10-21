@@ -1,9 +1,15 @@
+from django.http import HttpResponseRedirect
+# import the class in the form module
+from .forms import NameForm, ContactForm
+from django.shortcuts import render
 from django.shortcuts import render, redirect
 # login and logout users using the django authenticate framework
 # step1: import the modules for the user login/logout
 from django.contrib.auth import authenticate, login, logout
 # we want to display messages using django
 from django.contrib import messages
+# import email classes
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -38,4 +44,62 @@ def form_todo(request):
 
 
 def logout_user(request):
+    pass
+
+
+def get_name(request):
+    # if this is a POST request we need to process the form data
+    if request.method == "POST":
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect("/formtodoapphomepage/")
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+    return render(request, "name.html", {"form": form})
+# implementing view for contact form
+
+
+def get_contact_form(request):
+    # if this is a POST request we need to process the form data
+    if request.method == "POST":
+        # create a form instance and populate it with data from the request:
+        contact_form = ContactForm(request.POST)
+        # check whether it's valid:
+        if contact_form.is_valid():
+            # process the data in form.cleaned_data as required
+            # when the condition passes we can get cleaned data from the cleaned data dictionary
+            subject = contact_form.cleaned_data["subject"]
+            message = contact_form.cleaned_data["message"]
+            sender = contact_form.cleaned_data["sender"]
+            cc_myself = contact_form.cleaned_data["cc_myself"]
+            # send myself an email using the contact form field data
+            # step 1: import the relevent classes for email
+            # step 2: create a recipient
+            recipients = ["kabiruabdulkhafid@gmail.com"]
+            # if user click on send then add username
+            if cc_myself:
+                recipients.append(sender)
+
+            send_mail(subject, message, sender, recipients)
+            # redirect to a new URL:
+            return HttpResponseRedirect("/formtodoapphomepage/")
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        # if get or other method just create a form by instantiating the ContactForm class.
+        contact_form = ContactForm()
+
+    return render(request, "contact.html", {"contactForm": contact_form})
+# task: create a view that handles modelform which get form data and add it to a priority queue depending on task stage
+
+
+def handle_model_form(request):
     pass
