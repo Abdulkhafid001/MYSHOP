@@ -1,16 +1,15 @@
 from django.http import HttpResponseRedirect
 # import the class in the form module
-from .forms import NameForm, ContactForm
-from django.shortcuts import render
+from .forms import NameForm, ContactForm, CustomerForm
 from django.shortcuts import render, redirect
 # login and logout users using the django authenticate framework
 # step1: import the modules for the user login/logout
 from django.contrib.auth import authenticate, login, logout
-# we want to display messages using django
 from django.contrib import messages
 # import email classes
 from django.core.mail import send_mail
-
+# import model into view module to use the model
+from formtodo.models import Customer
 # Create your views here.
 
 
@@ -102,4 +101,19 @@ def get_contact_form(request):
 
 
 def handle_model_form(request):
-    pass
+    # instantiate our CustomerForm
+    customer_form = CustomerForm()
+    if request.method == 'POST':
+        # check if form that has been retreived
+        print(request.POST)
+        # since we use the method above to get all the form data we could also use it to pass all our form data into our model
+        customer_form = CustomerForm(request.POST)
+        # validate the form data
+        if customer_form.is_valid():
+            # save the object
+            customer_form.save()
+
+    # now get all customers from the database
+    all_customers = Customer.objects.all()
+    context = {'customerForm': customer_form, 'ourCustomers': all_customers}
+    return render(request, 'contact.html', context)

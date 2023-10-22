@@ -28,17 +28,59 @@
             text-align: center;
             text-transform: capitalize;
         }
+
+        .container {
+            width: 40%;
+            margin: auto;
+            text-align: left;
+        }
+
+        .container ul {
+            border: 1px solid rgb(0, 0, 0);
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+            list-style: none;
+        }
+
+        .container ul h3 {
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+            padding: 1em;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: purple;
+            letter-spacing: 1ch;
+            font-weight: bold;
+            font-size: 2em;
+        }
+        .container ul li {
+            padding: 0.5em;
+            margin: 0.4 0.2em;
+            background-color: rgb(227, 220, 220);
+        }
+        .container ul li span {
+            background-color: purple;
+        }
     </style>
 </head>
 
 <body>
     <h2 class="text-center">These forms are rendered with django.</h2>
-    <form action="{% url 'viewforcontactform' %}" method="post">
+    <form action="{% url 'viewformodelform' %}" method="post">
         {% csrf_token %}
         <!-- this variable renders the django built-in form context from the view -->
-        {{ contactForm }}
+        <!-- {{ contactForm }} -->
+        {{customerForm}}
         <input type="submit" value="Submit">
     </form>
+    <div class="container">
+        <ul>
+            <h3 class="text-center">Customers</h3>
+            {% for customer in ourCustomers %}
+            <li><span>{{customer.id}}.</span> {{ customer }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 
 </html>
