@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from formtodo.models import Customer
+from formtodo.models import Customer, TodoList
 
 
 class NameForm(forms.Form):
@@ -28,4 +28,10 @@ class CustomerForm(ModelForm):
     # step2: create a meta class that serves as a detail to set model info
     class Meta:
         model = Customer
+        fields = '__all__'
+
+
+class TodolistForm(ModelForm):
+    class Meta:
+        model = TodoList
         fields = '__all__'

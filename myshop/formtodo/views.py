@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 # import the class in the form module
-from .forms import NameForm, ContactForm, CustomerForm
+from .forms import NameForm, ContactForm, CustomerForm, TodolistForm
 from django.shortcuts import render, redirect
 # login and logout users using the django authenticate framework
 # step1: import the modules for the user login/logout
@@ -9,14 +9,14 @@ from django.contrib import messages
 # import email classes
 from django.core.mail import send_mail
 # import model into view module to use the model
-from formtodo.models import Customer
+from formtodo.models import Customer, TodoList
 # Create your views here.
 
 
 def form_todo(request):
     # step 3: here we get parameters from the form
     # i. check if the user is trying to log in by checking the request method
-    if request.method == 'post':
+    if request.method == '':
         # get the parameters
         username = request.POST['username']
         password = request.POST['password']
@@ -117,3 +117,20 @@ def handle_model_form(request):
     all_customers = Customer.objects.all()
     context = {'customerForm': customer_form, 'ourCustomers': all_customers}
     return render(request, 'contact.html', context)
+
+
+def handle_todolist_form(request):
+    # istantiate the todolist class
+    todolist_form = TodoList()
+    if request.method == 'POST':
+        # check if form that has been retreived
+        print(request.POST)
+        # since we use the method above to get all the form data we could also use it to pass all our form data into our model
+        todolist_form = TodoList(request.POST)
+        # validate the form data
+        if todolist_form.is_valid():
+            # save the object
+            todolist_form.save()
+
+    context = {'todolistForm': todolist_form}
+    return render(request, 'homepage.html', context)
