@@ -120,17 +120,12 @@ def handle_model_form(request):
 
 
 def handle_todolist_form(request):
-    # istantiate the todolist class
-    todolist_form = TodoList()
     if request.method == 'POST':
-        # check if form that has been retreived
-        print(request.POST)
-        # since we use the method above to get all the form data we could also use it to pass all our form data into our model
-        todolist_form = TodoList(request.POST)
-        # validate the form data
+        todolist_form = TodolistForm(request.POST)
         if todolist_form.is_valid():
-            # save the object
             todolist_form.save()
+    else:
+        todolist_form = TodolistForm()
 
     context = {'todolistForm': todolist_form}
     return render(request, 'homepage.html', context)
