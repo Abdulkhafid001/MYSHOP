@@ -16,10 +16,11 @@
 
 <body>
     {% if user.is_authenticated %}
+    <h1 class="text-center">TODO-APP</h1>
+    <h5 class="text-center">manage-your-task!</h5>
     <div id="myDIV" class="header">
-        <h1 class="text-center">TODO-APP</h1>
-        <h5 class="text-center">manage-your-task!</h5>
         <form action="" method="post">
+            {% csrf_token %}
             {{ todolistForm }}
             <input type="submit" class="addBtn" value="Add">
         </form>
@@ -35,15 +36,34 @@
 
     <!-- Tab content -->
     <div id="all" class="tabcontent">
-        <h2>all tasks regardless of stage appear here</h2>
+        <h2>here all your tasks</h2>
+        <ul>
+            {% for task in userTasks %}
+            <li style="color: black;"> {{ task.task_name }} {{ task.date}} </li>
+            {% endfor %}
+        </ul>
     </div>
 
     <div id="completed" class="tabcontent">
-        <h2>All completed task appear here</h2>
+        <h2>here are your completed tasks </h2>
+        <ul>
+            {% for task in userTasks %}
+            {% if task.completed %}
+            <li style="color: black;"> {{ task.task_name }} {{ task.date}} {{ task.completed }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
     </div>
 
     <div id="pending" class="tabcontent">
-        <h2>all pending tasks appear here</h2>
+        <h2>here are your pending tasks </h2>
+        <ul>
+            {% for task in userTasks %}
+            {% if task.pending %}
+            <li style="color: black;"> {{ task.task_name }} {{ task.date}} {{ task.completed }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
     </div>
     {% else %}
 

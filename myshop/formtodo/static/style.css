@@ -37,35 +37,42 @@
 .header {
     background-color: #032133;
     padding: 10px 20px;
-    /* color: white; */
     text-align: center;
+    /* Use flex to correct the display */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/* style the label */
+label{
+    color:white;
 }
 
 /* Clear floats after the header */
-.header:after {
+/* .header:after {
     content: "";
     display: table;
     clear: both;
-}
+} */
 
 /* Style the input */
 input {
     margin: 0;
     border: none;
     border-radius: 0;
-    width: 75%;
+    /* width: 75%; */
     padding: 10px;
-    float: left;
+    /* float: left; */
     font-size: 16px;
 }
 
 /* Style the "Add" button */
 .addBtn {
     padding: 10px;
-    width: 25%;
+    /* width: 25%; */
     background: #d9d9d9;
     color: #010101;
-    float: left;
+    /* float: left; */
     text-align: center;
     font-size: 16px;
     cursor: pointer;

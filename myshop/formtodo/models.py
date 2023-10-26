@@ -15,5 +15,6 @@ class Customer(models.Model):
 
 class TodoList(models.Model):
     task_name = models.CharField(max_length=200)
-    task_priority = models.BooleanField()
+    completed = models.BooleanField(default=False)
+    pending = models.BooleanField(default=False)
     date = models.DateTimeField()
