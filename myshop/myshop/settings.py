@@ -36,6 +36,8 @@ INTERNAL_IPS = [
 # you add all your applications within the project inside this list
 
 INSTALLED_APPS = [
+    # register the weather app 
+    'myweather',
     # register the formtodolist app
     'formtodo',
     # register the todo list app

@@ -126,9 +126,9 @@ def handle_todolist_form(request):
             todolist_form.save()
     else:
         todolist_form = TodolistForm()
-    
+
     # now get all customers from the database
     all_tasks = TodoList.objects.all()
     # create a context with database content and modelform
-    context = {'userTasks': all_tasks, 'todolistForm': TodolistFormfc}
+    context = {'userTasks': all_tasks, 'todolistForm': TodolistForm}
     return render(request, 'homepage.html', context)

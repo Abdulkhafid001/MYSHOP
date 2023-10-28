@@ -19,8 +19,10 @@ from django.urls import include, path
 admin.autodiscover()
 
 urlpatterns = [
+    # register weather app URLConf
+    path('', include('myweather.urls')),
     # register todo form app URLConf
-    path('', include('formtodo.urls')),
+    path('todoapp/', include('formtodo.urls')),
     # register the todolist app URLConf which serves as a link to the app
     path('todolist/', include('todolist.urls')),
     # register the aptech team URLConf
@@ -30,7 +32,7 @@ urlpatterns = [
     # here we import the votingapp as a high-level app in our parent mysite project
     # add the URLConf of my voting app to the main project
     # Define a pattern for the root path
-    path('votingapp', include('votingapp.urls')),
+    path('votingapp/', include('votingapp.urls')),
     # here we import the polls app as a high-level app in our parent mysite project
     # path('', include('polls.urls')),  # Define a pattern for the root path
     path('admin/', admin.site.urls),
