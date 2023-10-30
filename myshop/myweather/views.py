@@ -17,13 +17,14 @@ def show_weather(request):
 
 # the function gets the openweather map api data by using django request api
 def get_api_data(request):
-    api_key = 'ee783d0b9365d6cc2b9404190fe9408a'
+    api_key = '3f365be1c47d424ba41193728232910'
     lat = 10
     lon = 8
     date = '10/29/2023'
     # Specify the part to exclude, e.g., 'minutely' or 'hourly' or 'daily', or you can leave it out if you don't want to exclude any part.
     part = 'minutely'
-    url = f'https://api.openweathermap.org/data/3.0/onecall/day_summary?lat={lat}&lon={lon}&date={date}&appid={api_key}'
+    url = f'http://api.weatherapi.com/v1/current.json?key={api_key}&q=Abuja'
     # Now, you can use the 'url' variable to make an API request to OpenWeatherMap's One Call API using your variables.
     api_response = requests.get(url=url).json()
-    return JsonResponse(api_response)
+    # JsonResponse(api_response)
+    return render(request, "index.html", {'weatherdata': api_response})

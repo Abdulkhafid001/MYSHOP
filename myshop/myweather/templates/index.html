@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <a href="https://www.weatherapi.com/" title="Free Weather API">
+        <img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0">
+    </a>
+    <!-- display Weather data -->
+    <h1>Location Info</h1>
+    {{ weatherdata.location.name }}
+    {{ weatherdata.location.region }}
+    {{ weatherdata.location.country }}
+    {{ weatherdata.location.lat }}
+    {{ weatherdata.location.lon }}
+    {{ weatherdata.location.tz_id }}
+    {{ weatherdata.location.localtime_epoch }}
+    {{ weatherdata.location.localtime }}
+    <h1> The current data in {{ weatherdata.location.name }}</h1>
+    {{ weatherdata.current.last_updated_epoch }}
+    {{ weatherdata.current.last_updated }}
+    {{ weatherdata.current.temp_c }}
+    {{ weatherdata.current.temp_f }}
+    {{ weatherdata.current.is_day }}
+    <img src="{{https//:cdn.weatherapi.com/weather/64x64/night/113.png}}" alt="">
 </body>
+
 </html>
