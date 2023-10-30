@@ -8,5 +8,5 @@ from django.urls import path
 admin.autodiscover()
 # creat urlpattern list
 urlpatterns = [
-    path("", views.show_weather, name="weatherview")
+    path("", views.get_api_data, name="weatherview")
 ]
