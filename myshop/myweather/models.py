@@ -12,3 +12,9 @@ class Student(models.Model):
     name = models.CharField(max_length=100)
     rollno = models.IntegerField()
     course = models.CharField(max_length=15, choices=course_choices)
+
+
+class Userweather(models.Model):
+    city = models.CharField(max_length=100)
+    lat = models.IntegerField()
+    lon = models.IntegerField()
