@@ -11,6 +11,11 @@
     <a href="https://www.weatherapi.com/" title="Free Weather API">
         <img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0">
     </a>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ weatherForm }}
+        <input type="submit" class="addBtn" value="Add">
+    </form>
     <!-- display Weather data -->
     <h1>Location Info</h1>
     {{ weatherdata.location.name }}

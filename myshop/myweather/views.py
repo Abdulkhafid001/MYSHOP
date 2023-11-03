@@ -17,24 +17,25 @@ def show_weather(request):
     return HttpResponse(db_objects, content_type='application/json')
 
 
-# the function gets the openweather map api data by using django request api
+# the function gets the openweather map api data by using python requests api
 def get_api_data(request):
+
     if request.method == 'POST':
         # instantiate the form class
         weatherapp_form = UserInput(request.POST)
         if weatherapp_form.is_valid:
             # save form data to model
             weatherapp_form.save()
-            # get the location, lat, lon
-            location = weatherapp_form.cleaned_data["city"]
-            lat = weatherapp_form.cleaned_data["lat"]
-            lon = weatherapp_form.cleaned_data["lon"]
-            # logic to get userdata from the weather API
-            api_key = '3f365be1c47d424ba41193728232910'
-            url = f'http://api.weatherapi.com/v1/current.json?key={api_key}&q={location}'
-            # Now, you can use the 'url' variable to make an API request to OpenWeatherMap's One Call API using your variables.
-            api_response = requests.get(url=url).json()
         else:
             #  just instantiate the form
             weatherapp_form = UserInput()
-    return render(request, "index.html", {'weatherdata': api_response})
+        # get the location, lat, lon
+        location = weatherapp_form.cleaned_data["city"]
+        lat = weatherapp_form.cleaned_data["lat"]
+        lon = weatherapp_form.cleaned_data["lon"]
+        # logic to get userdata from the weather API
+        api_key = '3f365be1c47d424ba41193728232910'
+        url = f'http://api.weatherapi.com/v1/current.json?key={api_key}&q={location}'
+        # Now, you can use the 'url' variable to make an API request to OpenWeatherMap's One Call API using your variables.
+        api_response = requests.get(url=url).json()
+        return render(request, "index.html", [{'weatherdata': api_response}, {'weatherForm': weatherapp_form}])
