@@ -6,7 +6,7 @@ from .models import Members
 from django.template import loader
 # Create your views here.
 
-
+# the view gets all the members in the database(model)
 def members(request):
     # indexpage = loader.get_template("allmembers.html")
     # get all the data in the model(table)
@@ -17,7 +17,7 @@ def members(request):
     }
     return render(request, "allmembers.html", context)
 
-
+# the view gets the info the current member in the database(model)
 def detail_view(request, player_id):
     # get player with the id passed as argument to the view in the url
     player = Members.objects.get(id=player_id)

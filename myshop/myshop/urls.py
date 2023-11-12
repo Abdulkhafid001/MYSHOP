@@ -19,8 +19,10 @@ from django.urls import include, path
 admin.autodiscover()
 
 urlpatterns = [
+    # register the blog app URLConf
+    path('', include('blog.urls')),
     # register weather app URLConf
-    path('', include('myweather.urls')),
+    path('weatherapp/', include('myweather.urls')),
     # register todo form app URLConf
     path('todoapp/', include('formtodo.urls')),
     # register the todolist app URLConf which serves as a link to the app
