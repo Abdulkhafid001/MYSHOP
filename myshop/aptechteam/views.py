@@ -13,11 +13,12 @@ def members(request):
     # indexpage = loader.get_template("allmembers.html")
     # get all the data in the model(table)
     team_members = Members.objects.all().values()
+    # get all the images from model
+    images = UploadedImage.objects.all()
     context = {
         # create a dictionary and store the values from the model
-        "team": team_members,
     }
-    return render(request, "allmembers.html", context)
+    return render(request, "allmembers.html", { "team": team_members, "images":images})
 
 # the view gets the info the current member in the database(model)
 def detail_view(request, player_id):

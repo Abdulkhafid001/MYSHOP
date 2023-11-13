@@ -22,7 +22,7 @@ admin.autodiscover()
 
 urlpatterns = [
     # register the blog app URLConf
-    path('', include('blog.urls')),
+    path('blog/', include('blog.urls')),
     # register weather app URLConf
     path('weatherapp/', include('myweather.urls')),
     # register todo form app URLConf
@@ -30,7 +30,7 @@ urlpatterns = [
     # register the todolist app URLConf which serves as a link to the app
     path('todolist/', include('todolist.urls')),
     # register the aptech team URLConf
-    path('aptechteam/', include('aptechteam.urls')),
+    path('', include('aptechteam.urls')),
     # this file serves as the parent URLConf of the project therefore all apps URLConf must be registered here
     path('mainpollapp/', include('mainpollapp.urls')),
     # here we import the votingapp as a high-level app in our parent mysite project
