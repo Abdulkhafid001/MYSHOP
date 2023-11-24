@@ -1,5 +1,26 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.bg-image {
+    background-image: url('chelsea fc.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;/* Set the initial height of your div */
+    width: 100%;
+}
+.official-image{
+    width: 100;
+}
+.bg-brown{
+    background-color: rgb(26, 3, 3);
+}
+.player-of-week{
+    background-image: url('palmer.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;/* Set the initial height of your div */
+    width: 100%;
 }

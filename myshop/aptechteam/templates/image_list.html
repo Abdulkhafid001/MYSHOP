@@ -8,10 +8,10 @@
 </head>
 
 <body>
-
-    {% for image in images %}
-    <img src="{{ image.image.url }}" alt="Uploaded Image">
-    {% endfor %}
+    {{images}}
+    <h1>{{images.image_name}}</h1>
+    <p>{{images.image}}</p>
+    <img src="{{ images.image }}" alt="Uploaded Image">
 
 </body>
 

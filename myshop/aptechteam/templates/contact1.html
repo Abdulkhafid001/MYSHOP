@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aptech Team Contact Us</title>
+    {% load static %}
+    <!-- link to css -->
+    <link rel="stylesheet" href="{% static 'aptechteam.css' %}">
+    <!-- link to bootstrap5 CDN link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- link to js file JS -->
+    <script src="{% static 'aptechteam.js' %}"></script>
+    <!-- link to bootstrap5 CDN link JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid mb-4">
+        {% load static %}
+        <img src="{% static 'chelsea fc.jpg'%}" class="img-fluid" alt="aptech team image">
+    </div>
+    <!-- contact form part start -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 text-capitalize">
+                <div class="p-3">
+                    <h2>You Can Talk Us!</h2>
+                    <p class="fw-lighter">Questions, comments or suggestions? Simply fill in the form and we will be in
+                        touch shortly.</p>
+                    <ul class="text-left fw-bold" style="list-style: none;">
+                        <li><i class="bi-alarm"></i> City center, Gimbiya street, Garki Area 11 Abuja, Nigeria.</li>
+                        <li><i class="bi-telephone"></i> 09030003465.</li>
+                        <li><i class="bi bi-browser-safari"></i><a href="https://vymaps.com/tel:09030003465"
+                                target="_blank" rel="noopener noreferrer"> https://vymaps.com/tel:09030003465</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <form class="row g-3 p-2 border border-2 rounded">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="" placeholder="First Name">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="" placeholder="Last Name">
+                    </div>
+                    <div class="col-12">
+                        <input type="email" class="form-control" id="" placeholder="Enter Email">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" id="" placeholder="Location">
+                    </div>
+                    <div class="col-12">
+                        <textarea name="usermessage" id="" cols="70" rows="5" placeholder="your message..."></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-sm btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- contact form part end -->
+    <!-- footer section start -->
+    <footer class="container-fluid text-capitalize bg-black p-5">
+        <div class="row">
+            <div class="col-sm-4 ">
+                <img src="{% static 'logo.png' %}" height="60" width="130" alt="">
+                <p class="d-lg-block fs-1 text-white fst-italic fw-bold font-monospace">want to schedule a <span class="text-danger">match</span> with us?</p>
+            </div>
+            <div class="col-sm-4 text-white text-center ">
+                <ul class="" style="list-style: none;">
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">contact</a></li>
+                    <li><a href="#">matches</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4 text-white text-center">
+                <h5>social media links</h5>
+                <ul style="list-style: none;" class="fs-5 ">
+                    <li><a href="" class="link-light"><i class="bi bi-instagram pe-2"></i>  instagram</a></li>
+                    <li><a href="" class="link-light"><i class="bi bi-tiktok pe-2"></i>  tiktok</a></li>
+                    <li><a href="" class="link-light"><i class="bi bi-twitter pe-2"></i>  X(formely twitter)</a></li>
+                    <li><a href="" class="link-light"><i class="bi bi-snapchat pe-2"></i>  snapchat</a></li>
+                </ul>
+            </div>
+            <h3 class="text-center">&copy;aptechteam</h3>
+        </div>
+    </footer>
+    <!-- footer section end -->
+</body>
+
+</html>
